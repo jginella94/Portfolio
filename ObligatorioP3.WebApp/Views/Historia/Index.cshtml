@@ -1,0 +1,61 @@
+@model IEnumerable<ObligatorioP3.LogicaAplicacion.DTOs.Historias.DtoHistoriaListado>
+
+@{
+    ViewData["Title"] = "Historias";
+}
+
+<h1>Gestión de historias</h1>
+
+@if (TempData["MensajeExito"] is string mensajeExito)
+{
+    <div class="alert alert-success" role="alert">@mensajeExito</div>
+}
+
+@if (TempData["MensajeError"] is string mensajeError)
+{
+    <div class="alert alert-danger" role="alert">@mensajeError</div>
+}
+
+<p>
+    <a asp-controller="Historia" asp-action="Create" class="btn btn-primary">Crear historia</a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info" role="status">No hay historias registradas.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Sinopsis</th>
+                    <th>Estado</th>
+                    <th>Id capítulo inicial</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var historia in Model)
+                {
+                    <tr>
+                        <td>@historia.Id</td>
+                        <td>@historia.Titulo</td>
+                        <td>@historia.Sinopsis</td>
+                        <td>@historia.Estado</td>
+                        <td>@historia.IdCapituloInicial</td>
+                        <td>
+                            <a asp-controller="Capitulo" asp-action="Create" asp-route-historiaId="@historia.Id" class="btn btn-sm btn-outline-success">Agregar capítulo</a>
+                            <a asp-controller="Historia" asp-action="Edit" asp-route-id="@historia.Id" class="btn btn-sm btn-outline-primary">Editar</a>
+                            <a asp-controller="Historia" asp-action="EditCapituloInicial" asp-route-id="@historia.Id" class="btn btn-sm btn-outline-secondary">Capítulo inicial</a>
+                            <a asp-controller="Historia" asp-action="Delete" asp-route-id="@historia.Id" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

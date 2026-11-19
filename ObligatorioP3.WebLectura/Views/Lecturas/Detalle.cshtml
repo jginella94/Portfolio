@@ -1,0 +1,59 @@
+@model ObligatorioP3.WebLectura.Models.VMDetalleLectura
+
+@{
+    ViewData["Title"] = "Lectura interactiva";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Lectura interactiva</h1>
+    <a asp-controller="Historias" asp-action="Index" class="btn btn-outline-secondary">Volver a historias</a>
+</div>
+
+@if (TempData["MensajeError"] is string mensaje)
+{
+    <div class="alert alert-danger" role="alert">@mensaje</div>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.MensajeError))
+{
+    <div class="alert alert-danger" role="alert">@Model.MensajeError</div>
+}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h2 class="h4 card-title">@Model.Lectura.Titulo</h2>
+        <p class="card-text">@Model.Lectura.Texto</p>
+    </div>
+</div>
+
+@if (Model.Lectura.Completada)
+{
+    <div class="alert alert-success" role="status">
+        <h3 class="h5">¡Llegaste a un final!</h3>
+        <p class="mb-0">Tu lectura fue completada. Para explorar otro camino, comenzá una lectura nueva.</p>
+    </div>
+    <form asp-controller="Lecturas" asp-action="Iniciar" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="historiaId" value="@Model.Lectura.HistoriaId" />
+        <button type="submit" class="btn btn-primary">Iniciar una nueva lectura</button>
+    </form>
+}
+else if (Model.Lectura.Opciones.Count > 0)
+{
+    <h3 class="h5 mb-3">¿Qué querés hacer?</h3>
+    <div class="d-grid gap-2">
+        @foreach (var opcion in Model.Lectura.Opciones)
+        {
+            <form asp-controller="Lecturas" asp-action="Elegir" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@Model.Lectura.LecturaId" />
+                <input type="hidden" name="opcionId" value="@opcion.Id" />
+                <button type="submit" class="btn btn-outline-primary w-100 text-start">@opcion.Texto</button>
+            </form>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Este capítulo no tiene opciones disponibles.</div>
+}

@@ -1,0 +1,62 @@
+@model ObligatorioP3.WebLectura.Models.VMHistorias
+
+@{
+    ViewData["Title"] = "Historias disponibles";
+}
+
+<h1 class="mb-4">Historias disponibles</h1>
+
+@if (TempData["MensajeError"] is string mensaje)
+{
+    <div class="alert alert-danger" role="alert">@mensaje</div>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.MensajeError))
+{
+    <div class="alert alert-danger" role="alert">@Model.MensajeError</div>
+}
+
+<form asp-controller="Historias" asp-action="Index" method="get" class="row g-3 align-items-end mb-4">
+    <div class="col-md-8">
+        <label asp-for="CategoriaId" class="form-label">Categoría</label>
+        <select asp-for="CategoriaId" asp-items="Model.CategoriasDisponibles" class="form-select">
+            <option value="">Todas las categorías</option>
+        </select>
+    </div>
+    <div class="col-md-4 d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        <a asp-controller="Historias" asp-action="Index" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
+
+@if (string.IsNullOrWhiteSpace(Model.MensajeError))
+{
+    @if (Model.Historias.Count == 0)
+    {
+        <div class="alert alert-info" role="status">No se encontraron historias publicadas para el filtro seleccionado.</div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+            @foreach (var historia in Model.Historias)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@historia.Titulo</h5>
+                            <p class="card-text">@historia.Sinopsis</p>
+                            <p class="card-text text-muted mb-3">
+                                <small>@string.Join(" · ", historia.Categorias)</small>
+                            </p>
+                            <form asp-controller="Lecturas" asp-action="Iniciar" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="historiaId" value="@historia.Id" />
+                                <button type="submit" class="btn btn-primary">Comenzar lectura</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

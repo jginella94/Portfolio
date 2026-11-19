@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/ObligatorioP3.Documentacion/" />
+  <Project Path="ObligatorioP3.Infraestructura/ObligatorioP3.Infraestructura.csproj" Id="b6b8688f-df9f-4427-bf09-5ffd4dc781cb" />
+  <Project Path="ObligatorioP3.LogicaAplicacion/ObligatorioP3.LogicaAplicacion.csproj" />
+  <Project Path="ObligatorioP3.LogicaNegocio/ObligatorioP3.LogicaNegocio.csproj" Id="1610c077-aac1-44ba-b695-22d1d60383aa" />
+  <Project Path="ObligatorioP3.WebApi/ObligatorioP3.WebApi.csproj" Id="38cebf67-6e90-4f41-bdb5-167fdd31db10" />
+  <Project Path="ObligatorioP3.WebApp/ObligatorioP3.WebApp.csproj" Id="dee2b4d2-2b9c-4f7d-a2ea-8ef399ae0bd0" />
+  <Project Path="ObligatorioP3.WebLectura/ObligatorioP3.WebLectura.csproj" Id="e92857a3-c994-4ae6-b9dc-acb7eeaaa092" />
+</Solution>

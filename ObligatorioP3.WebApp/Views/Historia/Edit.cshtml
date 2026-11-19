@@ -1,0 +1,53 @@
+@model ObligatorioP3.WebApp.Models.VMHistoriaEdicion
+
+@{
+    ViewData["Title"] = "Editar historia";
+}
+
+<h1>Editar historia #@Model.Id</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Historia" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+            @Html.AntiForgeryToken()
+            <input asp-for="Id" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Titulo" class="form-label">Título</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Sinopsis" class="form-label">Sinopsis</label>
+                <textarea asp-for="Sinopsis" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Sinopsis" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CategoriasIds" class="form-label">Categorías</label>
+                <select asp-for="CategoriasIds" asp-items="Model.CategoriasDisponibles" multiple class="form-select" size="7"></select>
+                <div class="form-text">Seleccioná al menos una categoría. Mantené Ctrl para seleccionar varias.</div>
+                <span asp-validation-for="CategoriasIds" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Estado" class="form-label">Estado</label>
+                <select asp-for="Estado" class="form-select">
+                    <option value="BORRADOR">BORRADOR</option>
+                    <option value="PUBLICADA">PUBLICADA</option>
+                </select>
+                <div class="form-text">Solo puede publicarse una historia que cumpla todas las validaciones de capítulos y opciones.</div>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <a asp-controller="Historia" asp-action="Index" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

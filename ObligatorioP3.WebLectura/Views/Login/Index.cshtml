@@ -1,0 +1,34 @@
+@model ObligatorioP3.WebLectura.Models.VMLogin
+
+@{
+    ViewData["Title"] = "Ingresar";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5 col-lg-4">
+        <h1 class="h3 mb-4">Ingresar a Lectura</h1>
+        @if (TempData["MensajeError"] is string mensaje)
+        {
+            <div class="alert alert-danger">@mensaje</div>
+        }
+        <form asp-controller="Login" asp-action="Login" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <div class="mb-3">
+                <label asp-for="NombreUsuario" class="form-label"></label>
+                <input asp-for="NombreUsuario" class="form-control" autocomplete="username" />
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" autocomplete="current-password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

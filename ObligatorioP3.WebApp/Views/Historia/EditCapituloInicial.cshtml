@@ -1,0 +1,37 @@
+@model ObligatorioP3.WebApp.Models.VMCapituloInicialEdicion
+
+@{
+    ViewData["Title"] = "Editar capítulo inicial";
+}
+
+<h1>Editar capítulo inicial de la historia #@Model.HistoriaId</h1>
+<p class="text-muted">Solo se permite modificar el capítulo inicial mientras la historia no tenga otros capítulos.</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Historia" asp-action="EditCapituloInicial" asp-route-id="@Model.HistoriaId" method="post">
+            @Html.AntiForgeryToken()
+            <input asp-for="HistoriaId" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Titulo" class="form-label">Título</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Texto" class="form-label">Texto</label>
+                <textarea asp-for="Texto" class="form-control" rows="8"></textarea>
+                <span asp-validation-for="Texto" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar capítulo</button>
+            <a asp-controller="Historia" asp-action="Index" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

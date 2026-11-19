@@ -1,0 +1,84 @@
+@model ObligatorioP3.WebLectura.Models.VMEstadisticasFinales
+
+@{
+    ViewData["Title"] = "Estadísticas de finales";
+}
+
+<h1 class="mb-4">Estadísticas de finales alcanzados</h1>
+<p class="text-muted">Seleccioná una historia para conocer cuántas veces se alcanzó cada final.</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.MensajeError))
+{
+    <div class="alert alert-danger" role="alert">@Model.MensajeError</div>
+}
+
+@if (Model.Historias.Count == 0)
+{
+    if (string.IsNullOrWhiteSpace(Model.MensajeError))
+    {
+        <div class="alert alert-info" role="status">No hay historias disponibles.</div>
+    }
+}
+else
+{
+    <form asp-controller="EstadisticasFinales" asp-action="Index" method="get" class="row g-3 mb-4">
+        <div class="col-md-8">
+            <label for="historiaId" class="form-label">Historia</label>
+            <select id="historiaId" name="historiaId" class="form-select" required>
+                <option value="">Seleccioná una historia</option>
+                @foreach (var historia in Model.Historias)
+                {
+                    if (Model.HistoriaId == historia.HistoriaId)
+                    {
+                        <option value="@historia.HistoriaId" selected>@historia.Titulo</option>
+                    }
+                    else
+                    {
+                        <option value="@historia.HistoriaId">@historia.Titulo</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Consultar estadísticas</button>
+        </div>
+    </form>
+}
+
+@if (Model.Estadisticas is not null)
+{
+    <h2 class="h4 mb-3">@Model.Estadisticas.Titulo</h2>
+    @if (Model.Estadisticas.Finales.Count == 0)
+    {
+        <div class="alert alert-info" role="status">Esta historia no tiene finales registrados.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Final</th>
+                        <th scope="col" class="text-end">Veces alcanzado</th>
+                        <th scope="col">Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var final in Model.Estadisticas.Finales)
+                    {
+                        <tr>
+                            <td>@final.Titulo</td>
+                            <td class="text-end">@final.VecesAlcanzado</td>
+                            <td>
+                                @if (final.EsMasAlcanzado)
+                                {
+                                    <span class="badge bg-success">Más alcanzado</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}

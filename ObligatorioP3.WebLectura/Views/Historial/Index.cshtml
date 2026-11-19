@@ -1,0 +1,87 @@
+@model ObligatorioP3.WebLectura.Models.VMHistorialLecturas
+
+@{
+    ViewData["Title"] = "Mis lecturas";
+}
+
+<h1 class="mb-4">Mis lecturas</h1>
+
+<form asp-controller="Historial" asp-action="Index" method="get" class="row g-3 align-items-end mb-4">
+    <div class="col-md-4">
+        <label for="mes" class="form-label">Mes</label>
+        <select id="mes" name="mes" class="form-select">
+            @for (int m = 1; m <= 12; m++)
+            {
+                if (m == Model.Mes)
+                {
+                    <option value="@m" selected>@System.Globalization.CultureInfo.GetCultureInfo("es-UY").DateTimeFormat.GetMonthName(m)</option>
+                }
+                else
+                {
+                    <option value="@m">@System.Globalization.CultureInfo.GetCultureInfo("es-UY").DateTimeFormat.GetMonthName(m)</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="anio" class="form-label">Año</label>
+        <input id="anio" name="anio" type="number" min="1" max="9998" value="@Model.Anio" class="form-control" required />
+    </div>
+    <div class="col-md-5 d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Filtrar</button>
+        <a asp-controller="Historial" asp-action="Index" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.MensajeError))
+{
+    <div class="alert alert-danger" role="alert">@Model.MensajeError</div>
+}
+else if (Model.Lecturas.Count == 0)
+{
+    <div class="alert alert-info" role="status">No se encontraron lecturas iniciadas durante el mes y año seleccionados.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Historia</th>
+                    <th>Inicio (UTC)</th>
+                    <th>Estado</th>
+                    <th>Final alcanzado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lectura in Model.Lecturas)
+                {
+                    <tr>
+                        <td>@lectura.TituloHistoria</td>
+                        <td>@lectura.FechaInicio.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>
+                            @if (lectura.Completada)
+                            {
+                                <span class="badge bg-success">Completada</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">En progreso</span>
+                            }
+                        </td>
+                        <td>@(lectura.TituloFinal ?? "—")</td>
+                        <td>
+                            <a asp-controller="Lecturas"
+                               asp-action="Detalle"
+                               asp-route-id="@lectura.LecturaId"
+                               class="btn btn-sm btn-outline-primary">
+                                @(lectura.Completada ? "Ver final" : "Continuar")
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

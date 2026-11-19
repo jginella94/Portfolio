@@ -1,0 +1,14 @@
+@model ObligatorioP3.WebLectura.Models.DtoPerfilApi
+
+@{
+    ViewData["Title"] = "Mi perfil";
+}
+
+<h1 class="h3 mb-4">Mi perfil</h1>
+<div class="card">
+    <div class="card-body">
+        <p><strong>ID:</strong> @Model.Id</p>
+        <p><strong>Nombre:</strong> @Model.Nombre</p>
+        <p><strong>Rol:</strong> @Model.Rol</p>
+    </div>
+</div>

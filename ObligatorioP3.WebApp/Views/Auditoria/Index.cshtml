@@ -1,0 +1,63 @@
+@model ObligatorioP3.WebApp.Models.VMAuditoriaConsulta
+
+@{
+    ViewData["Title"] = "Auditoría de historias";
+}
+
+<h1>Auditoría de historias</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+<form asp-controller="Auditoria" asp-action="Index" method="get" class="row g-3 mb-4">
+    <div class="col-md-5">
+        <label asp-for="HistoriaId" class="form-label">Historia</label>
+        <select asp-for="HistoriaId" asp-items="Model.HistoriasDisponibles" class="form-select">
+            <option value="">Todas las historias</option>
+        </select>
+    </div>
+    <div class="col-md-5">
+        <label asp-for="AdministradorId" class="form-label">Administrador</label>
+        <select asp-for="AdministradorId" asp-items="Model.AdministradoresDisponibles" class="form-select">
+            <option value="">Todos los administradores</option>
+        </select>
+    </div>
+    <div class="col-md-2 d-flex align-items-end gap-2">
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        <a asp-controller="Auditoria" asp-action="Index" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-warning" role="alert">No fue posible recuperar la información solicitada.</div>
+}
+else if (!Model.Auditorias.Any())
+{
+    <div class="alert alert-info" role="status">No se encontraron auditorías para los filtros seleccionados.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Fecha (UTC)</th>
+                    <th>Historia</th>
+                    <th>Administrador</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var auditoria in Model.Auditorias)
+                {
+                    <tr>
+                        <td>@auditoria.Fecha.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                        <td>@auditoria.HistoriaId</td>
+                        <td>@auditoria.NombreUsuarioAdmin (@auditoria.UsuarioAdminId)</td>
+                        <td>@auditoria.Accion.Replace('_', ' ')</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

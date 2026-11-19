@@ -1,0 +1,58 @@
+@model ObligatorioP3.WebApp.Models.VMCapituloAgregar
+
+@{
+    ViewData["Title"] = "Agregar capítulo";
+}
+
+<h1>Agregar capítulo</h1>
+<p class="text-muted">Historia: @Model.TituloHistoria (Id @Model.HistoriaId)</p>
+
+<form asp-controller="Capitulo" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <input asp-for="HistoriaId" type="hidden" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="CapituloAntecedenteId" class="form-label"></label>
+        <select asp-for="CapituloAntecedenteId" asp-items="Model.Antecedentes" class="form-select">
+            <option value="0">Seleccione un capítulo intermedio</option>
+        </select>
+        <span asp-validation-for="CapituloAntecedenteId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Tipo" class="form-label"></label>
+        <select asp-for="Tipo" class="form-select">
+            <option value="">Seleccione un tipo</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Final">Final</option>
+        </select>
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label"></label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Texto" class="form-label"></label>
+        <textarea asp-for="Texto" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Texto" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TextoOpcion" class="form-label"></label>
+        <input asp-for="TextoOpcion" class="form-control" />
+        <span asp-validation-for="TextoOpcion" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar capítulo</button>
+    <a asp-controller="Historia" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

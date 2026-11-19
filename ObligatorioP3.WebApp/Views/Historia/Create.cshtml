@@ -1,0 +1,62 @@
+@model ObligatorioP3.WebApp.Models.VMHistoriaAlta
+
+@{
+    ViewData["Title"] = "Alta de historia";
+}
+
+<h1>Alta de historia</h1>
+<p class="text-muted">La historia se creará en estado BORRADOR y con un capítulo inicial sin opciones.</p>
+
+<div class="row">
+    <div class="col-md-8">
+        @if (!Model.CategoriasDisponibles.Any())
+        {
+            <div class="alert alert-warning" role="alert">No hay categorías disponibles para crear historias.</div>
+        }
+
+        <form asp-controller="Historia" asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Titulo" class="form-label">Título de la historia</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Sinopsis" class="form-label">Sinopsis</label>
+                <textarea asp-for="Sinopsis" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Sinopsis" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CategoriasIds" class="form-label">Categorías</label>
+                <select asp-for="CategoriasIds" asp-items="Model.CategoriasDisponibles" multiple class="form-select" size="7"></select>
+                <div class="form-text">Mantené presionada Ctrl para seleccionar varias categorías.</div>
+                <span asp-validation-for="CategoriasIds" class="text-danger"></span>
+            </div>
+
+            <h2 class="h4 mt-4">Capítulo inicial</h2>
+
+            <div class="mb-3">
+                <label asp-for="TituloCapituloInicial" class="form-label">Título del capítulo inicial</label>
+                <input asp-for="TituloCapituloInicial" class="form-control" />
+                <span asp-validation-for="TituloCapituloInicial" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="TextoCapituloInicial" class="form-label">Texto del capítulo inicial</label>
+                <textarea asp-for="TextoCapituloInicial" class="form-control" rows="6"></textarea>
+                <span asp-validation-for="TextoCapituloInicial" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" disabled="@(!Model.CategoriasDisponibles.Any())">Guardar historia</button>
+            <a asp-controller="Historia" asp-action="Index" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
