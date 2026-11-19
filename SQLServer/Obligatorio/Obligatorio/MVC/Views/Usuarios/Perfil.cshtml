@@ -1,0 +1,91 @@
+﻿@using Dominio;
+@model Usuario;
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-secondary text-white">
+        <h1 class="mb-0">Perfil del Usuario</h1>
+    </div>
+
+    <div class="card-body">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <h5 class="text-muted mb-1">Rol</h5>
+                <p class="fs-5 mb-0">
+                    @ViewBag.Usuario.Rol
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h5 class="text-muted mb-1">Nombre completo</h5>
+                <p class="fs-5 mb-0">
+                    @ViewBag.Usuario.Nombre @ViewBag.Usuario.Apellido
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h5 class="text-muted mb-1">Email</h5>
+                <p class="mb-0">
+                    <span class="badge bg-primary text-wrap">@ViewBag.Usuario.Email</span>
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <h5 class="text-muted mb-1">Fecha de incorporación</h5>
+                <p class="mb-0">
+                    @ViewBag.Usuario.FechaIncorporacion.ToShortDateString()
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <h5 class="text-muted mb-1">Gasto del mes</h5>
+                <p class="mb-0">
+                    <span class="badge bg-success">
+                        @ViewBag.Gastos
+                    </span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    @if (ViewBag.Listado != null)
+    {
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h2 class="mb-0">
+                    Usuarios del equipo: @ViewBag.Usuario.Equipo.Nombre
+                </h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Rol</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Fecha de Incorporacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Usuario u in ViewBag.Listado)
+                        {
+                            <tr>
+                                <td>@u.Rol</td>
+                                <td>@u.Nombre</td>
+                                <td>@u.Apellido</td>
+                                <td>@u.Email</td>
+                                <td>@u.FechaIncorporacion.ToShortDateString()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+

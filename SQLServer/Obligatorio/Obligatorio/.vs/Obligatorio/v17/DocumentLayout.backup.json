@@ -1,0 +1,233 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBE3A15-DB81-4D96-8462-13BEDD3EFDB0}|Dominio\\Dominio.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBE3A15-DB81-4D96-8462-13BEDD3EFDB0}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\controllers\\pagoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\pagoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBE3A15-DB81-4D96-8462-13BEDD3EFDB0}|Dominio\\Dominio.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\dominio\\recurrente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBE3A15-DB81-4D96-8462-13BEDD3EFDB0}|Dominio\\Dominio.csproj|solutionrelative:dominio\\recurrente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\shared\\noauth.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\shared\\noauth.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\tiposgastos\\eliminartipogasto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\tiposgastos\\eliminartipogasto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\pagos\\vergastosequipo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\pagos\\vergastosequipo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\pagos\\cargarpagounico.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\pagos\\cargarpagounico.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\pagos\\cargarpagorecurrente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\pagos\\cargarpagorecurrente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\usuarios\\perfil.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuarios\\perfil.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|c:\\users\\jgine\\source\\repos\\rodrigo-cornelius\\obligatorio\\obligatorio\\mvc\\views\\pagos\\listarmispagos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{38E1C749-455D-4441-ACD1-BE3143A2694D}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\pagos\\listarmispagos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Sistema.cs",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\Dominio\\Sistema.cs",
+              "RelativeDocumentMoniker": "Dominio\\Sistema.cs",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\Dominio\\Sistema.cs",
+              "RelativeToolTip": "Dominio\\Sistema.cs",
+              "ViewState": "AgIAAFgBAAAAAAAAAAAAAGoBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T23:44:04.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Recurrente.cs",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\Dominio\\Recurrente.cs",
+              "RelativeDocumentMoniker": "Dominio\\Recurrente.cs",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\Dominio\\Recurrente.cs",
+              "RelativeToolTip": "Dominio\\Recurrente.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswFMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T23:43:03.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NoAuth.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Shared\\NoAuth.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Shared\\NoAuth.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Shared\\NoAuth.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Shared\\NoAuth.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T11:39:45.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T11:31:50.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Usuarios\\Login.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuarios\\Login.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Usuarios\\Login.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuarios\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T11:23:38.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EliminarTipoGasto.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\TiposGastos\\EliminarTipoGasto.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\TiposGastos\\EliminarTipoGasto.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\TiposGastos\\EliminarTipoGasto.cshtml",
+              "RelativeToolTip": "MVC\\Views\\TiposGastos\\EliminarTipoGasto.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T11:11:57.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VerGastosEquipo.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\VerGastosEquipo.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Pagos\\VerGastosEquipo.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\VerGastosEquipo.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Pagos\\VerGastosEquipo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T10:14:58.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PagosController.cs",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Controllers\\PagosController.cs",
+              "RelativeDocumentMoniker": "MVC\\Controllers\\PagosController.cs",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Controllers\\PagosController.cs",
+              "RelativeToolTip": "MVC\\Controllers\\PagosController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwGUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T10:22:22.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T11:39:47.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ListarMisPagos.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\ListarMisPagos.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Pagos\\ListarMisPagos.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\ListarMisPagos.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Pagos\\ListarMisPagos.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T00:50:54.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CargarPagoRecurrente.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\CargarPagoRecurrente.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Pagos\\CargarPagoRecurrente.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\CargarPagoRecurrente.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Pagos\\CargarPagoRecurrente.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T10:01:07.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Perfil.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Usuarios\\Perfil.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuarios\\Perfil.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Usuarios\\Perfil.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuarios\\Perfil.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T10:29:12.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CargarPagoUnico.cshtml",
+              "DocumentMoniker": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\CargarPagoUnico.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Pagos\\CargarPagoUnico.cshtml",
+              "ToolTip": "C:\\Users\\jgine\\Source\\Repos\\Rodrigo-Cornelius\\Obligatorio\\Obligatorio\\MVC\\Views\\Pagos\\CargarPagoUnico.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Pagos\\CargarPagoUnico.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T11:03:31.145Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

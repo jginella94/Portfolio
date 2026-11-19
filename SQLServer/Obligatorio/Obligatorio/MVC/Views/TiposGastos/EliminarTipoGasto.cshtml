@@ -1,0 +1,39 @@
+﻿@using Dominio;
+@{
+    ViewData["Title"] = "Eliminar Tipo de Gasto";
+}
+
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h1 class="mb-0">Eliminar Tipo de Gasto</h1>
+        </div>
+
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            @if (ViewBag.Exito != null)
+            {
+                <div class="alert alert-success">@ViewBag.Exito</div>
+            }
+
+            <form method="post" action="/tiposGastos/EliminarTipoGasto" class="row g-3 mt-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Tipo de gasto a eliminar</label>
+                    <select name="nomTipoGasto" class="form-select">
+                        @foreach (TipoGasto t in Sistema.Instancia.TipoGasto)
+                        {
+                            <option value="@t.Nombre">@t.Nombre</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-danger me-2">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

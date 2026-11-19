@@ -1,0 +1,309 @@
+USE OUTATIME_INC
+GO
+
+CREATE INDEX IDX_oficinas_codPais
+ON oficinas(codPais);
+GO
+
+CREATE INDEX IDX_vehiculos_codPais
+ON vehiculos(codPais);
+GO
+
+CREATE INDEX IDX_vehiculos_modelo
+ON vehiculos(codModelo);
+GO
+
+CREATE INDEX IDX_vehiculos_oficina
+ON vehiculos(oficinaAsignado);
+GO
+
+CREATE INDEX IDX_choferes_codPais
+ON choferes(codPais);
+GO
+
+CREATE INDEX IDX_choferes_oficinaAsignado
+ON choferes(oficinaAsignado);
+GO
+
+CREATE INDEX IDX_clientes_codPais
+ON clientes(codPais);
+GO
+
+CREATE INDEX IDX_viajes_codCliente
+ON viajes(codCliente);
+GO
+
+CREATE INDEX IDX_viajes_codOficina
+ON viajes(codOficina);
+
+CREATE INDEX IDX_viajes_destino_codDestino
+ON viajes(destino_codDestino);
+GO
+
+CREATE INDEX IDX_viajes_codChoferAsignado
+ON viajes(codChoferAsignado);
+GO
+
+CREATE INDEX IDX_viajes_patenteVehiculoAsignado
+ON viajes(patenteVehiculoAsignado);
+GO
+
+CREATE INDEX IDX_pagos_codViaje
+ON pagos(codViaje);
+GO
+
+CREATE INDEX IDX_devoluciones_codPago
+ON devoluciones(codPago);
+GO
+
+CREATE INDEX IDX_viajes_fecha_salida
+ON viajes(fechaHora_salida);
+GO
+
+CREATE INDEX IDX_viajes_fecha_vuelta
+ON viajes(fechahora_vuelta);
+GO
+
+/*
+ARCHIVO DE PRECARGA DE DATOS
+Cantidad de registros:
+- Países: 15
+- Oficinas: 15
+- Modelos de vehículo: 15
+- Vehículos: 15
+- Choferes: 15
+- Clientes: 15
+- Destinos: 18
+- Viajes: 15
+- Pagos: 13
+- Devoluciones: 7
+*/USE [OUTATIME_INC]
+GO
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (1, N'Uruguay')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (2, N'Argentina')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (3, N'Brasil')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (4, N'Chile')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (5, N'Paraguay')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (6, N'Perú')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (7, N'Bolivia')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (8, N'Colombia')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (9, N'Venezuela')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (10, N'México')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (11, N'Estados Unidos')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (12, N'Canadá')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (13, N'España')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (14, N'Italia')
+INSERT [dbo].[paises] ([codPais], [descripcion]) VALUES (15, N'Alemania')
+GO
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (1, N'Sucursal Montevideo', 1, N'Av. Libertador 1234')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (2, N'Sucursal Buenos Aires', 2, N'Av. Corrientes 4500')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (3, N'Sucursal São Paulo', 3, N'Rua Paulista 900')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (4, N'Sucursal Santiago', 4, N'Av. Providencia 2200')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (5, N'Sucursal Asunción', 5, N'Av. España 1500')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (6, N'Sucursal Lima', 6, N'Av. Arequipa 3000')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (7, N'Sucursal La Paz', 7, N'Av. Mariscal 800')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (8, N'Sucursal Bogotá', 8, N'Calle 80 #12')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (9, N'Sucursal Caracas', 9, N'Av. Bolívar 500')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (10, N'Sucursal CDMX', 10, N'Reforma 100')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (11, N'Sucursal Miami', 11, N'Ocean Dr 200')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (12, N'Sucursal Toronto', 12, N'King St 400')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (13, N'Sucursal Madrid', 13, N'Gran Vía 50')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (14, N'Sucursal Roma', 14, N'Via Veneto 33')
+INSERT [dbo].[oficinas] ([codOficina], [descripcion], [codPais], [direccion]) VALUES (15, N'Sucursal Berlín', 15, N'Unter den Linden 12')
+GO
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (1, N'DeLorean DMC-12', CAST(1.21 AS Decimal(8, 2)), 1, N'Plutonio')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (2, N'DeLorean Sport', CAST(2.42 AS Decimal(8, 2)), 1, N'Plutonio')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (3, N'TimeRunner XR', CAST(3.63 AS Decimal(8, 2)), 0, N'Residuos Orgánicos')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (4, N'QuantumCar Z1', CAST(4.84 AS Decimal(8, 2)), 1, N'Rocas Volcánicas')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (5, N'FluxMobile S', CAST(2.42 AS Decimal(8, 2)), 0, N'H2O')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (6, N'RetroFlyer', CAST(3.63 AS Decimal(8, 2)), 1, N'Plutonio')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (7, N'ChronoVan', CAST(4.84 AS Decimal(8, 2)), 0, N'Residuos Orgánicos')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (8, N'TimeBuggy', CAST(1.21 AS Decimal(8, 2)), 0, N'H2O')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (9, N'FutureCar GT', CAST(2.42 AS Decimal(8, 2)), 1, N'Plutonio')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (10, N'Temporal X', CAST(3.63 AS Decimal(8, 2)), 1, N'Rocas Volcánicas')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (11, N'TimeCruiser', CAST(4.84 AS Decimal(8, 2)), 0, N'Residuos Orgánicos')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (12, N'DeLorean Classic', CAST(1.21 AS Decimal(8, 2)), 1, N'Plutonio')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (13, N'ChronoBike', CAST(2.42 AS Decimal(8, 2)), 0, N'H2O')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (14, N'FluxSUV', CAST(3.63 AS Decimal(8, 2)), 1, N'Rocas Volcánicas')
+INSERT [dbo].[modeloVehiculo] ([codModelo], [descripcion], [consumoGWViaje], [realizaVuelo], [tipoCombustible]) VALUES (15, N'QuantumMini', CAST(4.84 AS Decimal(8, 2)), 0, N'Residuos Orgánicos')
+GO
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'AAU123', 1, 1, 1)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'BBR456', 2, 2, 2)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'CCR789', 3, 3, 3)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'DDU321', 4, 4, 4)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'EEA654', 5, 5, 5)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'FFB987', 6, 6, 6)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'GGC159', 7, 7, 7)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'HHM753', 8, 8, 8)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'IIQ258', 9, 9, 9)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'JJZ147', 10, 10, 10)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'KKX369', 11, 11, 11)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'LLW951', 12, 12, 12)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'MMV753', 13, 13, 13)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'NNR456', 14, 14, 14)
+INSERT [dbo].[vehiculos] ([patente], [codPais], [codModelo], [oficinaAsignado]) VALUES (N'OOS852', 15, 15, 15)
+GO
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (1, N'Pérez', N'Juan', 1, CAST(N'1980-05-10' AS Date), 1)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (2, N'Gómez', N'Ana', 2, CAST(N'1985-03-12' AS Date), 2)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (3, N'Rodríguez', N'Luis', 3, CAST(N'1978-11-22' AS Date), 3)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (4, N'Fernández', N'María', 4, CAST(N'1990-01-15' AS Date), 4)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (5, N'Silva', N'Carlos', 5, CAST(N'1982-07-30' AS Date), 5)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (6, N'Torres', N'Lucía', 6, CAST(N'1993-09-09' AS Date), 6)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (7, N'Sosa', N'Miguel', 7, CAST(N'1988-12-01' AS Date), 7)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (8, N'López', N'Sofía', 8, CAST(N'1995-04-18' AS Date), 8)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (9, N'Martínez', N'Diego', 9, CAST(N'1981-02-25' AS Date), 9)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (10, N'Ramos', N'Paula', 10, CAST(N'1994-06-14' AS Date), 10)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (11, N'Vega', N'Hernán', 11, CAST(N'1983-08-19' AS Date), 11)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (12, N'Cruz', N'Elena', 12, CAST(N'1991-10-10' AS Date), 12)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (13, N'Molina', N'Jorge', 13, CAST(N'1986-03-03' AS Date), 13)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (14, N'Acosta', N'Valeria', 14, CAST(N'1992-12-12' AS Date), 14)
+INSERT [dbo].[choferes] ([codChofer], [apellido], [nombre], [codPais], [fnacimiento], [oficinaAsignado]) VALUES (15, N'Paz', N'Ricardo', 15, CAST(N'1984-09-27' AS Date), 15)
+GO
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (1, N'Suárez', N'Martín', 1, CAST(5000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (2, N'García', N'Laura', 2, CAST(7000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (3, N'Pereira', N'Andrés', 3, CAST(4500.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (4, N'Díaz', N'Carolina', 4, CAST(6000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (5, N'Rivas', N'Santiago', 5, CAST(8000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (6, N'Méndez', N'Lucía', 6, CAST(5500.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (7, N'Cabrera', N'Diego', 7, CAST(9000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (8, N'Ferrer', N'Paula', 8, CAST(6500.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (9, N'Benítez', N'Hugo', 9, CAST(4000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (10, N'Santos', N'María', 10, CAST(7500.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (11, N'Reyes', N'Pablo', 11, CAST(5000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (12, N'Navarro', N'Elisa', 12, CAST(8500.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (13, N'Campos', N'Rodrigo', 13, CAST(9500.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (14, N'Varela', N'Julia', 14, CAST(7000.00 AS Decimal(8, 2)))
+INSERT [dbo].[clientes] ([codCliente], [apellido], [nombre], [codPais], [LimiteCreditoMax]) VALUES (15, N'Ortiz', N'Nicolás', 15, CAST(6000.00 AS Decimal(8, 2)))
+GO
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (1, N'Nueva York 1985', CAST(N'1985-10-26T09:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (2, N'Roma 1955', CAST(N'1955-06-12T14:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (3, N'Tokio 2077', CAST(N'2077-03-05T18:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (4, N'Montevideo 2040', CAST(N'2040-01-01T12:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (5, N'Londres 1890', CAST(N'1890-09-15T10:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (6, N'París 2120', CAST(N'2120-11-20T20:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (7, N'Berlín 1939', CAST(N'1939-08-01T08:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (8, N'Madrid 2000', CAST(N'2000-05-10T16:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (9, N'Buenos Aires 1970', CAST(N'1970-07-07T09:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (10, N'Lima 1600', CAST(N'1900-02-02T11:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (11, N'Caracas 1999', CAST(N'1999-12-31T23:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (12, N'Toronto 2050', CAST(N'2050-04-04T13:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (13, N'México 1800', CAST(N'1800-08-08T15:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (14, N'Bogotá 2020', CAST(N'2020-03-03T17:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (15, N'Santiago 2035', CAST(N'2035-06-06T19:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (16, N'Chicago 1980', CAST(N'1980-04-04T10:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (17, N'Sydney 2090', CAST(N'2090-09-09T09:00:00.000' AS DateTime))
+INSERT [dbo].[destinos] ([codDestino], [descripcion], [fecha_hora]) VALUES (18, N'Johannesburgo 2005', CAST(N'2005-11-11T11:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (1, 1, 1, CAST(N'2026-01-01T10:00:00.000' AS DateTime), CAST(N'2026-01-05T08:00:00.000' AS DateTime), 1, CAST(N'2026-01-10T20:00:00.000' AS DateTime), 1200.0000, N'REALIZADO', 1, N'AAU123')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (2, 2, 2, CAST(N'2026-02-03T09:00:00.000' AS DateTime), CAST(N'2026-02-10T07:00:00.000' AS DateTime), 2, CAST(N'2026-02-15T18:00:00.000' AS DateTime), 1500.0000, N'REALIZADO', 2, N'BBR456')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (3, 3, 3, CAST(N'2026-03-01T11:00:00.000' AS DateTime), CAST(N'2026-03-05T09:00:00.000' AS DateTime), 3, CAST(N'2026-03-08T22:00:00.000' AS DateTime), 2000.0000, N'CANCELADO', 3, N'CCR789')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (4, 4, 4, CAST(N'2026-04-02T12:00:00.000' AS DateTime), CAST(N'2026-04-06T10:00:00.000' AS DateTime), 4, CAST(N'2026-04-12T21:00:00.000' AS DateTime), 1800.0000, N'REALIZADO', 4, N'DDU321')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (5, 5, 5, CAST(N'2026-05-03T14:00:00.000' AS DateTime), CAST(N'2026-05-07T08:00:00.000' AS DateTime), 5, CAST(N'2026-05-14T19:00:00.000' AS DateTime), 2200.0000, N'RESERVADO', 5, N'EEA654')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (6, 6, 6, CAST(N'2026-06-01T09:00:00.000' AS DateTime), CAST(N'2026-06-04T07:00:00.000' AS DateTime), 6, CAST(N'2026-06-09T20:00:00.000' AS DateTime), 2500.0000, N'REALIZADO', 6, N'FFB987')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (7, 7, 7, CAST(N'2026-07-01T10:00:00.000' AS DateTime), CAST(N'2026-07-05T08:00:00.000' AS DateTime), 7, CAST(N'2026-07-10T21:00:00.000' AS DateTime), 3000.0000, N'EN VIAJE', 7, N'GGC159')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (8, 8, 8, CAST(N'2026-08-01T11:00:00.000' AS DateTime), CAST(N'2026-08-06T09:00:00.000' AS DateTime), 8, CAST(N'2026-08-12T22:00:00.000' AS DateTime), 1700.0000, N'REALIZADO', 8, N'HHM753')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (9, 9, 9, CAST(N'2026-09-01T12:00:00.000' AS DateTime), CAST(N'2026-09-05T10:00:00.000' AS DateTime), 9, CAST(N'2026-09-11T23:00:00.000' AS DateTime), 2600.0000, N'REALIZADO', 9, N'IIQ258')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (10, 10, 10, CAST(N'2026-10-01T13:00:00.000' AS DateTime), CAST(N'2026-10-05T09:00:00.000' AS DateTime), 10, CAST(N'2026-10-10T20:00:00.000' AS DateTime), 2400.0000, N'REALIZADO', 10, N'JJZ147')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (11, 11, 11, CAST(N'2026-11-01T14:00:00.000' AS DateTime), CAST(N'2026-11-05T12:00:00.000' AS DateTime), 11, CAST(N'2026-11-10T21:00:00.000' AS DateTime), 2800.0000, N'REALIZADO', 11, N'KKX369')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (12, 12, 12, CAST(N'2026-12-01T15:00:00.000' AS DateTime), CAST(N'2026-12-06T13:00:00.000' AS DateTime), 12, CAST(N'2026-12-11T22:00:00.000' AS DateTime), 3200.0000, N'REALIZADO', 12, N'LLW951')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (13, 13, 13, CAST(N'2026-01-10T09:00:00.000' AS DateTime), CAST(N'2026-01-15T07:00:00.000' AS DateTime), 13, CAST(N'2026-01-20T19:00:00.000' AS DateTime), 2100.0000, N'SUSPENDIDO', 13, N'MMV753')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (14, 14, 14, CAST(N'2026-02-12T10:00:00.000' AS DateTime), CAST(N'2026-02-17T08:00:00.000' AS DateTime), 14, CAST(N'2026-02-22T20:00:00.000' AS DateTime), 2300.0000, N'CANCELADO', 14, N'NNR456')
+INSERT [dbo].[viajes] ([codViaje], [codCliente], [codOficina], [fechaHoraContratacion], [fechaHora_salida], [destino_codDestino], [fechaHora_vuelta], [costo], [estado], [codChoferAsignado], [patenteVehiculoAsignado]) VALUES (15, 15, 15, CAST(N'2026-03-15T11:00:00.000' AS DateTime), CAST(N'2026-03-20T09:00:00.000' AS DateTime), 15, CAST(N'2026-03-25T21:00:00.000' AS DateTime), 1900.0000, N'SUSPENDIDO', 15, N'OOS852')
+GO
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (1, 1, N'EFECTIVO', 1, 1200.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (2, 2, N'CREDITO', 1, 1500.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (4, 4, N'DEBITO', 1, 1800.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (6, 6, N'CREDITO', 1, 2500.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (8, 8, N'EFECTIVO', 1, 1700.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (9, 9, N'CREDITO', 1, 2600.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (10, 10, N'CREDITO', 1, 2400.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (11, 11, N'DEBITO', 1, 2800.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (12, 12, N'CREDITO', 1, 3200.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (20, 5, N'CREDITO', 1, 1200.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (21, 5, N'CREDITO', 2, 1000.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (22, 14, N'EFECTIVO', 1, 500.0000)
+INSERT [dbo].[pagos] ([codPago], [codViaje], [metodo], [cuotas], [montoTotal]) VALUES (23, 3, N'CREDITO', 1, 2000.0000)
+GO
+SET IDENTITY_INSERT [dbo].[devoluciones] ON 
+
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (49, 1, CAST(N'2026-01-12T00:00:00.000' AS DateTime), 200.0000, N'Retraso significativo en la entrega del vehículo')
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (50, 4, CAST(N'2026-04-07T00:00:00.000' AS DateTime), 1800.0000, N'Cancelación total por tormenta eléctrica')
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (51, 6, CAST(N'2026-06-12T00:00:00.000' AS DateTime), 350.0000, N'Corrección por kilometraje mal registrado')
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (52, 9, CAST(N'2026-09-15T00:00:00.000' AS DateTime), 500.0000, N'Reclamo por condiciones del vehículo')
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (53, 11, CAST(N'2026-11-12T00:00:00.000' AS DateTime), 300.0000, N'Error administrativo en la facturación')
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (54, 22, CAST(N'2026-02-28T00:00:00.000' AS DateTime), 500.0000, N'Registro duplicado del viaje')
+INSERT [dbo].[devoluciones] ([codDevolucion], [codPago], [fechaDevolucion], [montoDevuelto], [motivo]) VALUES (55, 23, CAST(N'2026-03-12T00:00:00.000' AS DateTime), 250.0000, N'Ajuste por cambio de método de pago')
+SET IDENTITY_INSERT [dbo].[devoluciones] OFF
+GO
+
+
+-- PRECARGA COMPLEMENTARIA, PARA TENER DATOS DE INTERES--
+
+INSERT INTO viajes
+(codViaje,codCliente,codOficina,fechaHoraContratacion,
+ fechaHora_salida,destino_codDestino,fechaHora_vuelta,
+ costo,estado,codChoferAsignado,patenteVehiculoAsignado)
+VALUES
+
+(16,1,1,'2026-01-01','2026-01-05',17,'2026-01-10',4500,'REALIZADO',1,'AAU123'),
+
+(17,2,2,'2026-01-02','2026-01-06',18,'2026-01-11',4300,'REALIZADO',2,'BBR456'),
+
+(18,3,3,'2026-01-03','2026-01-07',16,'2026-01-12',4100,'REALIZADO',6,'FFB987'),
+
+(19,4,4,'2026-01-04','2026-01-08',17,'2026-01-13',4700,'REALIZADO',1,'AAU123'),
+
+(20,5,5,'2026-01-05','2026-01-09',18,'2026-01-14',4400,'REALIZADO',2,'BBR456'),
+
+(21,6,6,'2026-01-06','2026-01-10',16,'2026-01-15',4200,'REALIZADO',6,'FFB987'),
+
+(22,7,7,'2026-01-07','2026-01-11',17,'2026-01-16',4600,'REALIZADO',4,'DDU321'),
+
+(23,8,8,'2026-01-08','2026-01-12',18,'2026-01-17',4800,'REALIZADO',4,'DDU321'),
+
+(24,9,9,'2026-01-09','2026-01-13',16,'2026-01-18',4000,'REALIZADO',10,'JJZ147'),
+
+(25,10,10,'2026-01-10','2026-01-14',17,'2026-01-19',4900,'REALIZADO',10,'JJZ147'),
+
+(26,11,11,'2026-01-11','2026-01-15',18,'2026-01-20',5000,'REALIZADO',12,'LLW951'),
+
+(27,12,12,'2026-01-12','2026-01-16',16,'2026-01-21',4100,'REALIZADO',12,'LLW951'),
+
+(28,13,13,'2026-01-13','2026-01-17',17,'2026-01-22',3900,'RESERVADO',13,'MMV753'),
+
+(29,14,14,'2026-01-14','2026-01-18',18,'2026-01-23',3800,'RESERVADO',14,'NNR456'),
+
+(30,15,15,'2026-01-15','2026-01-19',16,'2026-01-24',3700,'RESERVADO',15,'OOS852');
+
+GO
+
+INSERT INTO pagos
+(codPago,codViaje,metodo,cuotas,montoTotal)
+VALUES
+(24,16,'EFECTIVO',1,4500),
+(25,17,'EFECTIVO',1,4300),
+(26,18,'CREDITO',3,4100),
+(27,19,'EFECTIVO',1,4700),
+(28,20,'DEBITO',1,4400),
+(29,21,'CREDITO',6,4200),
+(30,22,'EFECTIVO',1,4600),
+(31,23,'EFECTIVO',1,4800),
+(32,24,'DEBITO',1,4000),
+(33,25,'CREDITO',3,4900),
+(34,26,'EFECTIVO',1,5000),
+(35,27,'CREDITO',6,4100);
+GO
+
+SELECT * FROM dbo.viajes
+
+-- Precarga para ejercicio 3 (E)
+INSERT INTO destinos (codDestino, descripcion, fecha_hora)
+VALUES (99, 'Hill Valley Futuro', '2500-05-10 10:00:00');
+
+-- Precarga para ejercicio 3 (E)
+INSERT INTO viajes
+(codViaje, codCliente, codOficina, fechaHoraContratacion,
+ fechaHora_salida, destino_codDestino, fechaHora_vuelta,
+ costo, estado, codChoferAsignado, patenteVehiculoAsignado)
+VALUES
+(999, 1, 1, '2026-01-01', '2026-01-05', 99, '2026-01-10', 5000, 'REALIZADO', 1, 'AAU123');

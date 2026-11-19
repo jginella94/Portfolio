@@ -1,0 +1,67 @@
+﻿@using Dominio;
+@model Recurrente;
+
+@{
+    ViewData["Title"] = "Cargar Pago Recurrente";
+}
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h1 class="mb-0">Cargar Pago Recurrente</h1>
+        </div>
+
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            @if (ViewBag.Exito != null)
+            {
+                <div class="alert alert-success">@ViewBag.Exito</div>
+            }
+
+            <form method="post" action="/pagos/CargarPagoRecurrente" class="row g-3 mt-2">
+
+                <div class="col-md-6">
+                    <label class="form-label">Metodo de pago</label>
+                    <select name="metodoPago" class="form-select">
+
+                        <option value="@MetodoPago.CREDITO">Credito</option>
+                        <option value="@MetodoPago.DEBITO">Debito</option>
+                        <option value="@MetodoPago.EFECTIVO">Efectivo</option>
+
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Tipo de gasto</label>
+                    <select name="tipoGasto" class="form-select">
+                        @foreach (TipoGasto t in Sistema.Instancia.TipoGasto)
+                        {
+                            <option value="@t.Nombre">@t.Nombre</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Descripcion</label>
+                    <input type="text" name="descripcion" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Monto</label>
+                    <input type="number" name="monto" min="0" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Fecha inicio</label>
+                    <input type="date" name="fechai" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Fecha fin</label>
+                    <input type="date" name="fechaf" class="form-control" required />
+                </div>
+                <div class="col-12 text-end mt-3">
+                    <button type="submit" class="btn btn-success me-2">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

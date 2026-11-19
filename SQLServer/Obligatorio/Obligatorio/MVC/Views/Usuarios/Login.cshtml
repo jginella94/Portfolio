@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="card shadow-sm p-4 col-12 col-sm-8 col-md-6 col-lg-4">
+        <h1 class="text-center mb-4">Iniciar sesión</h1>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <form action="/usuarios/login" method="post" class="d-grid gap-3">
+            <div>
+                <label class="form-label">Email</label>
+                <input type="email" name="email" placeholder="Ingrese email" class="form-control" required />
+            </div>
+            <div>
+                <label class="form-label">Contraseña</label>
+                <input type="password" name="pass" placeholder="Ingrese password" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+    </div>
+</div>

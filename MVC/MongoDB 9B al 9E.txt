@@ -1,0 +1,139 @@
+/* Ejercicio 9.B */
+
+use OUTATIME
+
+db.Encuestas.aggregate([
+    {
+        //Filtramos 
+        $match: {
+            tipoEvaluacion: "OFICINA"
+        }
+    },
+    {
+        //Agrupamos por oficna
+        $group: {
+            _id: "$oficina.nombre",
+            promedioAtencion: {
+                $avg: "$respuestas.atencion"
+            }
+        }
+    },
+    {
+        //Ordenamos de mayor a menor
+        $sort: {
+            promedioAtencion: -1
+        }
+    }
+])
+
+/* Ejercicio 9.C */
+
+use OUTATIME
+
+db.Encuestas.aggregate([
+    {
+        // Filtramos las encuestas de vehículos
+        $match: {
+            tipoEvaluacion: "VEHICULO"
+        }
+    },
+    {
+        // Agrupamos por vehículo
+        $group: {
+            _id: "$vehiculo.modelo",
+            promedioLimpieza: {
+                $avg: "$respuestas.limpieza"
+            }
+        }
+    },
+    {
+        // Solo vehículos con promedio menor a 3
+        $match: {
+            promedioLimpieza: {
+                $lt: 3
+            }
+        }
+    },
+    {
+        // De peor a mejor
+        $sort: {
+            promedioLimpieza: 1
+        }
+    }
+])
+
+/* Ejercicio 9.D */
+
+use OUTATIME
+
+db.Encuestas.aggregate([
+    {
+        // Solo encuestas de oficinas
+        $match: {
+            tipoEvaluacion: "OFICINA"
+        }
+    },
+    {
+        // Agrupar por oficina
+        $group: {
+            _id: "$oficina.nombre",
+            totalEncuestas: { $sum: 1 },
+            noRecomendadas: {
+                $sum: {
+                    $cond: [
+                        { $eq: ["$respuestas.recomendacion", false] },
+                        1,
+                        0
+                    ]
+                }
+            }
+        }
+    },
+    {
+        // Calcular porcentaje
+        $project: {
+            oficina: "$_id",
+            totalEncuestas: 1,
+            noRecomendadas: 1,
+            porcentajeNoRecomendadas: {
+                $multiply: [
+                    { $divide: ["$noRecomendadas", "$totalEncuestas"] },
+                    100
+                ]
+            }
+        }
+    },
+    {
+        // Más del 30%
+        $match: {
+            porcentajeNoRecomendadas: { $gt: 30 }
+        }
+    },
+    {
+        $project: {
+            _id: 0
+        }
+    }
+])
+
+/* Ejercicio 9.E */
+
+use OUTATIME
+
+db.Encuestas.aggregate([
+    {
+        // Agrupar por país
+        $group: {
+            _id: "$pais",
+            cantidadEncuestas: {
+                $sum: 1
+            }
+        }
+    },
+    {
+        // Ordenar de mayor a menor
+        $sort: {
+            cantidadEncuestas: -1
+        }
+    }
+])

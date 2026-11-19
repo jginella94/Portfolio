@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container text-center my-5">
+    @if (Context.Session.GetString("email") != null)
+    {
+        <div class="card shadow-sm p-4">
+            <h1 class="display-5">¡Bienvenido/a!</h1>
+            <p class="fs-4 text-primary fw-semibold">
+                @Context.Session.GetString("email")
+            </p>
+            <p class="text-muted">
+                Sistema de gestión de pagos.
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm p-4">
+            <h1 class="display-6">Bienvenido/a al sistema</h1>
+            <p class="fs-5">Por favor, inicia sesión para continuar.</p>
+        </div>
+    }
+</div>

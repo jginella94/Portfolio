@@ -1,0 +1,47 @@
+﻿@using Dominio
+@{
+    ViewData["Title"] = "Listar Mis Pagos";
+}
+
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h1 class="mb-0"> Listar Mis Pagos</h1>
+        </div>
+
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+            else
+            {
+                <table class="table table-striped table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Tipo de Pago</th>
+                            <th>Metodo de Pago</th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Pago p in ViewBag.Listado)
+                        {
+                            <tr>
+                                <td>@p.Id</td>
+                                <td>@p</td>
+                                <td>@p.MetodoPago</td>
+                                <td>@p.Descripcion</td>
+                                <td>@p.FechaAMostrar().ToShortDateString()</td>
+                                <td>@p.CalcularGasto()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
